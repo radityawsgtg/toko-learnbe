@@ -1,0 +1,21 @@
+// prisma/schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+// --- MULAI DARI SINI ---
+
+// Kita bikin model (tabel) untuk Produk E-book
+model Ebook {
+  id        Int      @id @default(autoincrement()) // ID otomatis (1, 2, 3...)
+  judul     String   // Kolom judul (Teks)
+  penulis   String   // Kolom penulis (Teks)
+  harga     Int      // Kolom harga (Angka)
+  createdAt DateTime @default(now()) // Catat waktu dibuat
+}
